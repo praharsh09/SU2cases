@@ -1,0 +1,13 @@
+# system/self-written log-files
+*txt
+*log
+
+# su2 output
+*dat
+*csv
+
+# Paraview output
+*vtm
+*vtu
+*vtk
+*pvsm

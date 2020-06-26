@@ -1,0 +1,27 @@
+#!/bin/bash
+#
+#BSUB -J cht_primal        ### name of job 
+#BSUB -n 14             ### optional: min cores(,max_cores)
+#BSUB -M 1000              ### memory/core in Megabyte
+#BSUB -R span[ptile=14]    ### cores/Node , equal to -N for subbin
+#BSUB -W 1:00             ### run time of job (hour:)minute
+#BSUB -e err.log           ### name of error file
+#BSUB -o out.log           ### name of output file
+#BSUB -q rb_regular        ### run '> bqueues' to see options
+#BSUB -P CX-024699        ### CX number
+
+lscpu > lscpu.txt
+
+# set up the environment
+module purge
+module load gnu/4.8.5
+module load openmpi/3.1.2
+
+rm  terminate* *vtk *log *png
+
+# Run SU2 make
+SU2_RUN="/home/kat7rng/1__SU2-code/3__feature_perioidc_streamwise/bin"
+config="configFluid.cfg"
+
+mpirun -n 14 $SU2_RUN/SU2_CFD $config | tee CFD.log
+
