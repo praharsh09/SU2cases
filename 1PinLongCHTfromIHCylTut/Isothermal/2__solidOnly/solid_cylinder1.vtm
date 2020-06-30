@@ -1,0 +1,18 @@
+<VTKFile type="vtkMultiBlockDataSet" version="1.0">
+<vtkMultiBlockDataSet>
+<Block name="Zone 0 (Solid Heat)">
+<Block name="Internal">
+<DataSet name="Internal" file="solid_cylinder1/zone_0/Internal.vtu"/>
+</Block>
+<Block name="Boundary">
+<DataSet name="solidB_outer_interface" file="solid_cylinder1/zone_0/solidB_outer_interface.vtu"/>
+<DataSet name="solidB_inner_interface" file="solid_cylinder1/zone_0/solidB_inner_interface.vtu"/>
+</Block>
+</Block>
+</vtkMultiBlockDataSet>
+<FieldData>
+<DataArray type='Float32' Name='TimeValue'>
+0
+</DataArray>
+</FieldData>
+</VTKFile>
